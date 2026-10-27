@@ -22,7 +22,7 @@ cd site && python3 -m http.server 8000   # look at it locally
 | `data/sample/` | **SAMPLE** fixture (invented listings, labeled `_SAMPLE_DATA: true`) + placeholder photos generator |
 | `data/live/registry.json` | Every model ever seen: name, URL slug, dates, change hash. No photos, prices or item IDs. Slugs never change; pages are never deleted |
 | `data/live/model_content.json` | Per-model copy slots (`about`, `release_info`, `fit_notes`). Empty = hidden on the live site |
-| `.github/workflows/build.yml` | Rebuild + deploy every 3 hours to GitHub Pages |
+| `.github/workflows/build.yml` | Rebuild on GitHub Actions every 3 hours, then deploy `site/` to Cloudflare Pages (Direct Upload with `cloudflare/wrangler-action`) |
 
 Behavior
 - **Sold out:** page stays at the same URL with a neutral image (the eBay photo and item specifics are dropped once the listing ends, per API License 8.1(b)(1)), shows "Sold out for now", links to a store search for that model and to 4 similar in-stock models. `Product` JSON-LD is dropped (only breadcrumbs) so Google doesn't show a stale price.

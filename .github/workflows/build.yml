@@ -4,16 +4,19 @@ on:
   schedule:
     - cron: "7 */3 * * *"   # every 3 hours (UTC). eBay API License 8.1(c): displayed data must be <= 6h old; 3h leaves room for GitHub cron delays.
   workflow_dispatch:         # "Run workflow" button for a manual refresh
+    inputs:
+      create_pages_project:
+        description: "First run only: create the Cloudflare Pages project 'duckwalksneakers' (production branch main) before deploying"
+        type: boolean
+        default: false
   push:
     branches: [main]
 
 permissions:
   contents: write   # commit data/live/registry.json (model names/slugs only, no listing data) so sold-out pages are never lost
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: false
 
 jobs:
@@ -40,15 +43,13 @@ jobs:
           git add data/live/registry.json data/live/model_content.json
           git diff --cached --quiet || git commit -m "Update model registry [skip ci]"
           git push
-      - uses: actions/upload-pages-artifact@v3
+      # Cloudflare Pages Direct Upload of the prebuilt site/ folder (no Cloudflare-side build, so it
+      # does not use the free plan's 500 builds/month; 8 runs/day is about 248 deploys/month anyway).
+      - name: Deploy site/ to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
         with:
-          path: site
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          preCommands: ${{ inputs.create_pages_project && 'wrangler pages project create duckwalksneakers --production-branch=main' || 'echo "Pages project already exists"' }}
+          command: pages deploy site --project-name=duckwalksneakers --branch=main

@@ -303,8 +303,8 @@ def privacy_page(ctx):
 <h2>What we collect</h2>
 <p>Nothing. This site has no accounts, no forms, no checkout, no analytics and no cookies of its own. We do not ask for, receive or store any personal information.</p>
 <h2>Hosting</h2>
-<p>The site is hosted on GitHub Pages. Like any web host, GitHub may log technical data such as your IP address when you load a page, for security and to run the service. See the
-<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
+<p>The site is hosted on Cloudflare Pages. Like any web host, Cloudflare may log technical data such as your IP address when you load a page, for security and to run the service. See the
+<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Privacy Policy</a>.</p>
 <h2>Photos and eBay links</h2>
 <p>Listing photos load directly from eBay's image servers. When you click a link to eBay, you leave this site and eBay's own
 <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-privacy-notice-privacy-policy?id=4260" rel="noopener">privacy notice</a> applies.

@@ -182,8 +182,8 @@ def main():
         write("robots.txt", "# SAMPLE build: keep out of search engines\nUser-agent: *\nDisallow: /\n")
     else:
         write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n")
-    if cfg.get("custom_domain"):
-        write("CNAME", cfg["custom_domain"] + "\n")
+    # Hosting is Cloudflare Pages: the custom domain is set in the Pages project, so no CNAME file is
+    # written. .nojekyll is an empty leftover from GitHub Pages; Cloudflare just serves it as a 0-byte file.
     write(".nojekyll", "")
     write("build-info.json", json.dumps({"built": now_iso, "mode": mode, "models": len(models),
                                          "models_in_stock": len(in_stock), "listings": n_listings,

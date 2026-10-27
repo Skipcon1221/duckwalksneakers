@@ -64,3 +64,15 @@ https://partnernetwork.ebay.com/legal (published Sept 24, 2026)
 EPN bans domains that use eBay marks or end in "Bay". duckwalksneakers does neither. Sneaker brand names are
 used only to describe the real items; footer says we are not affiliated. No federal trademark search was run on
 "duckwalk".
+
+## 9. Hosting: Cloudflare Pages, not GitHub Pages (checked Oct 27, 2026)
+- GitHub Pages is off: GitHub's Pages terms say it is not meant for sites "primarily directed at facilitating
+  commercial transactions". GitHub Actions is still used only to build.
+- Cloudflare Self-Serve Subscription Agreement (https://www.cloudflare.com/terms/) has no ban on commercial
+  sites on free plans. The one Free-plan rule that touches selling is 2.2.1(h): do not "process or collect
+  personal or business credit card information on any web property that is receiving Free Services".
+  This site has no checkout, forms or payments (all buying happens on eBay), so it complies. Keep it that way.
+- Developer Platform terms (https://www.cloudflare.com/service-specific-terms-developer-platform/, Pages
+  included) allow hosting content; they only bar illegal/harmful content, malware, phishing and project
+  names that use other businesses' names deceptively. "duckwalksneakers" is our own name.
+- Privacy page now names Cloudflare as the host and links its privacy policy (API License 8.2(c)).
