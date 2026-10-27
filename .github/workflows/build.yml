@@ -1,0 +1,54 @@
+name: Build & deploy duckwalksneakers.com
+
+on:
+  schedule:
+    - cron: "7 */3 * * *"   # every 3 hours (UTC). eBay API License 8.1(c): displayed data must be <= 6h old; 3h leaves room for GitHub cron delays.
+  workflow_dispatch:         # "Run workflow" button for a manual refresh
+  push:
+    branches: [main]
+
+permissions:
+  contents: write   # commit data/live/registry.json (model names/slugs only, no listing data) so sold-out pages are never lost
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build site from live eBay listings
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_SELLER_USERNAME: ${{ vars.EBAY_SELLER_USERNAME }}
+          EPN_CAMPAIGN_ID: ${{ vars.EPN_CAMPAIGN_ID }}
+          REQUIRE_LIVE: "1"     # never publish sample data
+        run: python build.py
+      - name: Save model registry (keeps sold-out pages forever)
+        run: |
+          git config user.name "duckwalk-bot"
+          git config user.email "duckwalk-bot@users.noreply.github.com"
+          git add data/live/registry.json data/live/model_content.json
+          git diff --cached --quiet || git commit -m "Update model registry [skip ci]"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

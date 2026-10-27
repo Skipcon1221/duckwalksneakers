@@ -1,0 +1,26 @@
+{
+  "site_name": "duckwalksneakers",
+  "tagline": "Authentic sneakers, every size we have in stock, sold on eBay.",
+  "base_url": "https://duckwalksneakers.com",
+  "custom_domain": "duckwalksneakers.com",
+
+  "ebay_seller_username": "ukcats239",
+  "ebay_store_name": "duckwalksneakers",
+  "ebay_store_url": "https://www.ebay.com/str/duckwalksneakers",
+  "store_search_style": "ssn",
+  "_store_search_style_help": "'ssn' = https://www.ebay.com/sch/i.html?_ssn=<seller>&_nkw=<model> (standard seller-items search, always works). 'str' = https://www.ebay.com/str/<store>?_nkw=<model> (store-page search; switch to this once you confirm it in a browser).",
+
+  "ebay_marketplace_id": "EBAY_US",
+  "ebay_category_ids": "11450",
+  "_ebay_category_ids_help": "Browse API search needs a q or category. 11450 = Clothing, Shoes & Accessories (covers all sneakers). Narrow if needed.",
+  "fetch_item_details": true,
+  "_fetch_item_details_help": "When true, calls getItem for each listing on every run to read item specifics like Style Code, US Shoe Size, Colorway, Release Year. Nothing is cached to disk.",
+  "max_detail_calls_per_run": 450,
+  "_max_detail_calls_per_run_help": "Cap on eBay API calls per build. 8 builds/day x 450 = 3,600, under the default 5,000/day Browse limit. Listings past the cap fall back to title parsing.",
+
+  "epn_campaign_id": "",
+  "_epn_campaign_id_help": "eBay Partner Network campaign ID. Leave blank until Mark joins EPN. When set, every eBay link becomes an EPN tracking link and an affiliate disclosure appears at the top of every page and in the footer.",
+
+  "max_data_age_hours": 6,
+  "timezone": "America/New_York"
+}

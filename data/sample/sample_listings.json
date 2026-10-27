@@ -1,0 +1,1069 @@
+{
+ "_SAMPLE_DATA": true,
+ "_note": "SAMPLE DATA ONLY. Invented listings shaped like eBay Browse API itemSummaries (plus localizedAspects from getItem). Prices, item IDs and photos are NOT real. The live build replaces this automatically once EBAY_CLIENT_ID/EBAY_CLIENT_SECRET exist.",
+ "seller_username": "ukcats239",
+ "itemSummaries": [
+  {
+   "itemId": "v1|SAMPLE0000000001|0",
+   "title": "Air Jordan 4 Retro Bred Reimagined FV5029-006 Size 9 Mens New",
+   "price": {
+    "value": "245.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/fv5029-006.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000001",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 4 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Bred Reimagined"
+    },
+    {
+     "name": "Style Code",
+     "value": "FV5029-006"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "9"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2024"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000002|0",
+   "title": "Air Jordan 4 Retro Bred Reimagined FV5029-006 Size 10.5 Mens New",
+   "price": {
+    "value": "260.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/fv5029-006.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000002",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 4 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Bred Reimagined"
+    },
+    {
+     "name": "Style Code",
+     "value": "FV5029-006"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "10.5"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2024"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000003|0",
+   "title": "Air Jordan 4 Retro Bred Reimagined FV5029-006 Size 13 Mens New",
+   "price": {
+    "value": "285.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/fv5029-006.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000003",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 4 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Bred Reimagined"
+    },
+    {
+     "name": "Style Code",
+     "value": "FV5029-006"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "13"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2024"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000004|0",
+   "title": "Air Jordan 1 Retro High OG Chicago Lost and Found DZ5485-612 Size 8 Mens New",
+   "price": {
+    "value": "310.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dz5485-612.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000004",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 1 Retro High OG"
+    },
+    {
+     "name": "Colorway",
+     "value": "Chicago Lost and Found"
+    },
+    {
+     "name": "Style Code",
+     "value": "DZ5485-612"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "8"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000005|0",
+   "title": "Air Jordan 1 Retro High OG Chicago Lost and Found DZ5485-612 Size 11 Mens New",
+   "price": {
+    "value": "335.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dz5485-612.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000005",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 1 Retro High OG"
+    },
+    {
+     "name": "Colorway",
+     "value": "Chicago Lost and Found"
+    },
+    {
+     "name": "Style Code",
+     "value": "DZ5485-612"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "11"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000006|0",
+   "title": "Air Jordan 1 Retro High OG Chicago Lost and Found DZ5485-612 Size 14 Mens Used",
+   "price": {
+    "value": "299.00",
+    "currency": "USD"
+   },
+   "condition": "Pre-owned",
+   "image": {
+    "imageUrl": "/sample-img/dz5485-612.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000006",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 1 Retro High OG"
+    },
+    {
+     "name": "Colorway",
+     "value": "Chicago Lost and Found"
+    },
+    {
+     "name": "Style Code",
+     "value": "DZ5485-612"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "14"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000007|0",
+   "title": "Air Jordan 11 Retro Gratitude CT8012-170 Size 10 Mens New",
+   "price": {
+    "value": "235.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/ct8012-170.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000007",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 11 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Gratitude"
+    },
+    {
+     "name": "Style Code",
+     "value": "CT8012-170"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "10"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2023"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000008|0",
+   "title": "Air Jordan 11 Retro Gratitude CT8012-170 Size 12 Mens New",
+   "price": {
+    "value": "240.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/ct8012-170.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000008",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 11 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Gratitude"
+    },
+    {
+     "name": "Style Code",
+     "value": "CT8012-170"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "12"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2023"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000009|0",
+   "title": "Air Jordan 4 Retro Military Black DH6927-111 Size 11 Mens Used",
+   "price": {
+    "value": "185.00",
+    "currency": "USD"
+   },
+   "condition": "Pre-owned",
+   "image": {
+    "imageUrl": "/sample-img/dh6927-111.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000009",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Jordan"
+    },
+    {
+     "name": "Model",
+     "value": "Air Jordan 4 Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Military Black"
+    },
+    {
+     "name": "Style Code",
+     "value": "DH6927-111"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "11"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000010|0",
+   "title": "Nike Dunk Low Retro Panda DD1391-100 Size 7 Mens New",
+   "price": {
+    "value": "115.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dd1391-100.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000010",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "14.95",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Dunk Low Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Panda"
+    },
+    {
+     "name": "Style Code",
+     "value": "DD1391-100"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "7"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2021"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000011|0",
+   "title": "Nike Dunk Low Retro Panda DD1391-100 Size 9.5 Mens New",
+   "price": {
+    "value": "120.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dd1391-100.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000011",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "14.95",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Dunk Low Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Panda"
+    },
+    {
+     "name": "Style Code",
+     "value": "DD1391-100"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "9.5"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2021"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000012|0",
+   "title": "Nike Dunk Low Retro Panda DD1391-100 Size 11 Mens New",
+   "price": {
+    "value": "118.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dd1391-100.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000012",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "14.95",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Dunk Low Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Panda"
+    },
+    {
+     "name": "Style Code",
+     "value": "DD1391-100"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "11"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2021"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000013|0",
+   "title": "Nike Dunk Low Retro Panda DD1391-100 Size 15 Mens New",
+   "price": {
+    "value": "140.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/dd1391-100.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000013",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "14.95",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Dunk Low Retro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Panda"
+    },
+    {
+     "name": "Style Code",
+     "value": "DD1391-100"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "15"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2021"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000014|0",
+   "title": "Nike Kobe 6 Protro Grinch CW2190-300 Size 10 Mens New",
+   "price": {
+    "value": "480.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/cw2190-300.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000014",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Kobe 6 Protro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Grinch"
+    },
+    {
+     "name": "Style Code",
+     "value": "CW2190-300"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "10"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2020"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000015|0",
+   "title": "Nike Kobe 6 Protro Grinch CW2190-300 Size 11.5 Mens New",
+   "price": {
+    "value": "465.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/cw2190-300.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000015",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "Nike"
+    },
+    {
+     "name": "Model",
+     "value": "Kobe 6 Protro"
+    },
+    {
+     "name": "Colorway",
+     "value": "Grinch"
+    },
+    {
+     "name": "Style Code",
+     "value": "CW2190-300"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "11.5"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2020"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000016|0",
+   "title": "adidas Yeezy Boost 350 V2 Bone HQ6316 Size 9 Mens New",
+   "price": {
+    "value": "230.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/hq6316.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000016",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "adidas"
+    },
+    {
+     "name": "Model",
+     "value": "Yeezy Boost 350 V2"
+    },
+    {
+     "name": "Colorway",
+     "value": "Bone"
+    },
+    {
+     "name": "Style Code",
+     "value": "HQ6316"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "9"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000017|0",
+   "title": "adidas Yeezy Boost 350 V2 Bone HQ6316 Size 10 Mens New",
+   "price": {
+    "value": "235.00",
+    "currency": "USD"
+   },
+   "condition": "New with box",
+   "image": {
+    "imageUrl": "/sample-img/hq6316.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000017",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "0.00",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "adidas"
+    },
+    {
+     "name": "Model",
+     "value": "Yeezy Boost 350 V2"
+    },
+    {
+     "name": "Colorway",
+     "value": "Bone"
+    },
+    {
+     "name": "Style Code",
+     "value": "HQ6316"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "10"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2022"
+    }
+   ]
+  },
+  {
+   "itemId": "v1|SAMPLE0000000018|0",
+   "title": "550 White Green BB550WT1 Size 10.5 Mens Used",
+   "price": {
+    "value": "95.00",
+    "currency": "USD"
+   },
+   "condition": "Pre-owned",
+   "image": {
+    "imageUrl": "/sample-img/bb550wt1.svg"
+   },
+   "itemWebUrl": "https://www.ebay.com/itm/SAMPLE0000000018",
+   "seller": {
+    "username": "ukcats239"
+   },
+   "buyingOptions": [
+    "FIXED_PRICE",
+    "BEST_OFFER"
+   ],
+   "shippingOptions": [
+    {
+     "shippingCostType": "FIXED",
+     "shippingCost": {
+      "value": "14.95",
+      "currency": "USD"
+     }
+    }
+   ],
+   "localizedAspects": [
+    {
+     "name": "Brand",
+     "value": "New Balance"
+    },
+    {
+     "name": "Model",
+     "value": "550"
+    },
+    {
+     "name": "Colorway",
+     "value": "White Green"
+    },
+    {
+     "name": "Style Code",
+     "value": "BB550WT1"
+    },
+    {
+     "name": "US Shoe Size",
+     "value": "10.5"
+    },
+    {
+     "name": "Department",
+     "value": "Men"
+    },
+    {
+     "name": "Release Year",
+     "value": "2021"
+    }
+   ]
+  }
+ ]
+}

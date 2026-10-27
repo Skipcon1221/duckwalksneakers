@@ -1,0 +1,7 @@
+site/
+__pycache__/
+*.pyc
+data/sample/registry.json
+screenshots/
+.env
+data/live/item_cache.json

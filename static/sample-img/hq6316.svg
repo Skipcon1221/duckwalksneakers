@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+<rect width="600" height="600" fill="#f3f1ed"/>
+<path d="M70 360 C 90 300, 150 270, 210 262 L 260 230 C 290 212, 330 220, 345 250 C 360 285, 400 300, 455 315 C 510 330, 535 352, 535 378 L 535 395 L 70 395 Z" fill="#ece7dc" stroke="#222" stroke-width="6" stroke-linejoin="round"/>
+<path d="M210 262 C 240 300, 300 320, 345 250" fill="none" stroke="#cfc7b4" stroke-width="16" stroke-linecap="round"/>
+<rect x="64" y="392" width="478" height="34" rx="12" fill="#cfc7b4" stroke="#222" stroke-width="6"/>
+<text x="300" y="490" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#9a8f80">SAMPLE PHOTO</text>
+<text x="300" y="530" font-family="Arial,Helvetica,sans-serif" font-size="22" text-anchor="middle" fill="#9a8f80">HQ6316</text>
+</svg>

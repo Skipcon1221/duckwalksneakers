@@ -1,0 +1,21 @@
+{
+  "_SAMPLE_DATA": true,
+  "_note": "SAMPLE: pretends the Jordan 3 White Cement Reimagined was in stock on an earlier run and has since sold out.",
+  "models": {
+    "dn3707-100": {
+      "slug": "jordan-3-white-cement-reimagined",
+      "name": "Air Jordan 3 Retro \u201cWhite Cement Reimagined\u201d",
+      "brand": "Jordan",
+      "model": "Air Jordan 3 Retro",
+      "colorway": "White Cement Reimagined",
+      "style_code": "DN3707-100",
+      "release_year": "2023",
+      "image": "/sample-img/dn3707-100.svg",
+      "search_query": "Air Jordan 3 Retro White Cement Reimagined",
+      "first_seen": "2026-09-14T10:00:00-04:00",
+      "last_in_stock": "2026-10-19T14:00:00-04:00",
+      "last_changed": "2026-10-19T14:00:00-04:00",
+      "signature": ""
+    }
+  }
+}
