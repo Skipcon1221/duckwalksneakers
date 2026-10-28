@@ -18,7 +18,7 @@ def size_range(sizes):
     sizes = sorted({s for s in sizes if s}, key=size_sort_key)
     if not sizes:
         return ""
-    return sizes[0] if len(sizes) == 1 else f"{sizes[0]}\u2013{sizes[-1]}"
+    return sizes[0] if len(sizes) == 1 else f"{sizes[0]} to {sizes[-1]}"
 
 
 def jsonld(obj):
@@ -37,7 +37,11 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
     epn_top = ('<p class="epn-disclosure">Ad disclosure: links to eBay on this site are affiliate links. '
                'As an eBay Partner Network Affiliate, we earn from qualifying purchases.</p>') if epn_on else ""
     epn_note = " Links to eBay are eBay Partner Network affiliate links, and we earn from qualifying purchases." if epn_on else ""
-    og = f'<meta property="og:image" content="{e(og_image if og_image.startswith("http") else base + og_image)}">' if og_image else ""
+    # Pages without a live listing photo (home, brand, privacy, sold out) share the logo card.
+    og_image = og_image or "/assets/og-default.png"
+    og = f'<meta property="og:image" content="{e(og_image if og_image.startswith("http") else base + og_image)}">'
+    if og_image == "/assets/og-default.png":
+        og += f'\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="{e(cfg["site_name"])} logo">'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -55,13 +59,16 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 <meta name="twitter:card" content="summary_large_image">
 {'<meta name="robots" content="noindex">' if ctx["sample"] else ''}
 <link rel="stylesheet" href="/assets/style.css?v={ctx['build_id']}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {head_extra}
 </head>
 <body>
 {sample_banner}
 <header class="site-header"><div class="wrap">
-  <a class="logo" href="/"><span class="logo-mark" aria-hidden="true">&#x1F986;</span>{e(cfg['site_name'])}</a>
+  <a class="logo" href="/"><img src="/assets/logo.png" alt="{e(cfg['site_name'])}" width="170" height="168"></a>
   <nav><a href="/#brands">Brands</a><a class="btn btn-small" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Full store on eBay</a></nav>
 </div></header>
 <main class="wrap">
@@ -71,7 +78,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 </main>
 <footer class="site-footer"><div class="wrap">
   <p><strong>{e(cfg['site_name'])}</strong> &middot; Naples, Florida. All items are listed and sold on eBay; checkout, payment, shipping and returns are handled on eBay.
-  {e(cfg['site_name'])} is an independent eBay seller. This site is not run, endorsed or sponsored by eBay.{epn_note}</p>
+  {e(cfg['site_name'])} (eBay store: {e(cfg.get('ebay_store_name') or ctx['seller'])}) is an independent eBay seller. This site is not run, endorsed or sponsored by eBay.{epn_note}</p>
   <p class="muted">Listing photos, prices and sizes come from our own live eBay listings and refresh every few hours. Always confirm the final price, shipping and details on eBay before buying.
   Brand and model names are trademarks of their owners and are used only to describe the items; we are not affiliated with any sneaker brand.</p>
   <p class="footer-links"><a href="/privacy/">Privacy</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-agreement?id=4259" rel="noopener">eBay User Agreement</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-privacy-notice-privacy-policy?id=4260" rel="noopener">eBay Privacy Notice</a></p>
@@ -156,7 +163,7 @@ def model_page(m, ctx, similar, content):
 
     if m["in_stock"]:
         prices = [l["price"] for l in m["listings"]]
-        title = f"{m['name']}{sc} \u2013 US Sizes {srange} | {cfg['site_name']}"
+        title = f"{m['name']}{sc} | US Sizes {srange} | {cfg['site_name']}"
         conds = sorted({l["condition"] for l in m["listings"] if l["condition"]})
         size_list = ", ".join(sorted({s for s in sizes if s}, key=size_sort_key))
         desc = (f"Shop the {m['name']}{(' (' + m['style_code'] + ')') if m.get('style_code') else ''} in US sizes {size_list}"
@@ -188,7 +195,7 @@ def model_page(m, ctx, similar, content):
         hero_img = m["image"]
         status = f'<p class="status in">In stock &middot; US {e(srange)} &middot; from {e(fmt_price(min(prices)))}</p>'
     else:
-        title = f"{m['name']}{sc} \u2013 Sold Out | {cfg['site_name']}"
+        title = f"{m['name']}{sc} | Sold Out | {cfg['site_name']}"
         desc = (f"The {m['name']}{(' (' + m['style_code'] + ')') if m.get('style_code') else ''} is sold out at "
                 f"{cfg['site_name']} right now. Check our eBay store for new pairs or shop similar sneakers in stock.")
         stock_html = f"""<section class="soldout-box"><h2>Sold out for now</h2>
@@ -259,8 +266,8 @@ def home_page(ctx, brands):
         sections.append(f'<section class="brand-sec" id="b-{e(b_slug)}"><div class="sec-head"><h2>{e(bname)}</h2>'
                         f'<a href="/brand/{e(b_slug)}/">All {e(bname)} &rarr;</a></div>'
                         + ebay_block(f'<div class="grid">{"".join(card(m, ctx) for m in ms)}</div>') + '</section>')
-    body = f"""<section class="hero">
-  <h1>{e(cfg['site_name'])}</h1>
+    body = f"""<section class="hero hero-home">
+  <h1 class="hero-logo"><img src="/assets/logo-hero.png" alt="{e(cfg['site_name'])}" width="608" height="600" fetchpriority="high"></h1>
   <p class="lead">{e(cfg['tagline'])}</p>
   <p class="hero-stats"><strong>{total_pairs}</strong> pairs across <strong>{total_models}</strong> models in stock now</p>
   <div class="hero-cta"><a class="btn" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Shop the full store on eBay</a></div>
@@ -268,7 +275,7 @@ def home_page(ctx, brands):
 <section id="brands"><h2 class="visually-hidden">Brands</h2><div class="chips">{chips}</div></section>
 {''.join(sections)}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": base + "/"}
-    return layout(ctx, title=f"{cfg['site_name']} \u2013 Jordan, Nike, adidas & more sneakers by size",
+    return layout(ctx, title=f"{cfg['site_name']} | Jordan, Nike, adidas & more sneakers by size",
                   description=f"{cfg['site_name']}: shop {total_pairs} sneakers in stock by model and size, including "
                               + ", ".join(b for b, _ in ctx["brand_index"][:4]) + ". Every pair is sold on eBay.",
                   canonical_path="/", body=body, head_extra=jsonld(ld))

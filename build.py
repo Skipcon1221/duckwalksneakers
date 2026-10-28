@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""duckwalksneakers static site generator.
+"""Duck Walk Sneakers (duckwalksneakers.com) static site generator.
 
   python3 build.py              # live eBay data if EBAY_CLIENT_ID/EBAY_CLIENT_SECRET are set, else SAMPLE data
   python3 build.py --sample     # force the labeled sample fixture
