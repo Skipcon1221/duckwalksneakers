@@ -77,7 +77,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 {body}
 </main>
 <footer class="site-footer"><div class="wrap">
-  <p><strong>{e(cfg['site_name'])}</strong> &middot; Naples, Florida. All items are listed and sold on eBay; checkout, payment, shipping and returns are handled on eBay.
+  <p><strong>{e(cfg['site_name'])}</strong> &middot; Southwest Florida. All items are listed and sold on eBay; checkout, payment, shipping and returns are handled on eBay.
   {e(cfg['site_name'])} (eBay store: {e(cfg.get('ebay_store_name') or ctx['seller'])}) is an independent eBay seller. This site is not run, endorsed or sponsored by eBay.{epn_note}</p>
   <p class="muted">Listing photos, prices and sizes come from our own live eBay listings and refresh every few hours. Always confirm the final price, shipping and details on eBay before buying.
   Brand and model names are trademarks of their owners and are used only to describe the items; we are not affiliated with any sneaker brand.</p>
