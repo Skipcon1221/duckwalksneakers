@@ -1,12 +1,12 @@
 {
   "site_name": "Duck Walk Sneakers",
-  "_site_name_help": "Brand name shown to people (titles, header, footer, og:site_name, JSON-LD). Not the domain and not the eBay store name: base_url and custom_domain stay duckwalksneakers.com; the eBay store is popsandus3.",
+  "_site_name_help": "Brand name shown to people (titles, header, footer, og:site_name, JSON-LD). Not the domain and not the eBay store name: base_url and custom_domain stay duckwalksneakers.com; the eBay store name is ukcats239. ebay_store_url uses the old store slug popsandus3, which still resolves.",
   "tagline": "Authentic sneakers, every size we have in stock, sold on eBay.",
   "base_url": "https://duckwalksneakers.com",
   "custom_domain": "duckwalksneakers.com",
 
   "ebay_seller_username": "ukcats239",
-  "ebay_store_name": "popsandus3",
+  "ebay_store_name": "ukcats239",
   "ebay_store_url": "https://www.ebay.com/str/popsandus3",
   "store_search_style": "ssn",
   "_store_search_style_help": "'ssn' = https://www.ebay.com/sch/i.html?_ssn=<seller>&_nkw=<model> (standard seller-items search, always works). 'str' = https://www.ebay.com/str/<store>?_nkw=<model> (store-page search; switch to this once you confirm it in a browser).",

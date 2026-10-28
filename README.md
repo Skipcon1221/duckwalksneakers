@@ -13,7 +13,7 @@ cd site && python3 -m http.server 8000   # look at it locally
 
 | Path | What it is |
 |---|---|
-| `config.json` | Site name, seller username (`ukcats239`), store (`popsandus3`), EPN campaign ID (blank), category, max data age |
+| `config.json` | Site name, seller username and eBay store name (`ukcats239`), store URL still the old slug `popsandus3` (it still resolves), EPN campaign ID (blank), category, max data age |
 | `build.py` | Fetch → group → merge into the permanent registry → render `site/` |
 | `duckwalk/ebay.py` | Client-credentials token, `item_summary/search?filter=sellers:{ukcats239}` (paginated), `getItem` / `get_items_by_item_group` for item specifics and multi-size listings, per-run call budget, nothing cached to disk |
 | `duckwalk/models.py` | Style code / size / model parsing and grouping (item specifics first, title regex fallback) |
