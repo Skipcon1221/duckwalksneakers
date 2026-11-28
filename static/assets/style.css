@@ -11,6 +11,8 @@ a{color:inherit}
 /* Logo art is black on transparent, so the header is white and the logo needs no badge. */
 .logo{display:flex;align-items:center;line-height:0;text-decoration:none}
 .logo img{display:block;height:84px;width:auto}
+/* Shown only on small screens, beside the logo. Desktop keeps Guides in the nav. */
+.header-guides{display:none}
 .site-header nav a:not(.btn){font-weight:700}
 .site-header nav a:not(.btn):hover{text-decoration:underline}
 .site-header nav{display:flex;align-items:center;gap:16px;font-size:.95rem}
@@ -84,7 +86,9 @@ a{color:inherit}
 @media (max-width:720px){
  .model-hero{grid-template-columns:1fr;gap:14px}
  .site-header nav a:not(.btn){display:none}
- .site-header .wrap{height:72px}.logo img{height:60px}
+ .site-header .wrap{height:72px;justify-content:flex-start}.logo img{height:60px}
+ .header-guides{display:inline-flex;align-items:center;margin-left:12px;margin-right:auto;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap}
+ .header-guides:hover{text-decoration:underline}
  .hero-home{padding:18px 0 4px}.hero-home .hero-logo img{height:170px}
  .hero-home .lead{font-size:1.05rem}
  .site-header .btn-small{padding:6px 10px;font-size:.75rem}

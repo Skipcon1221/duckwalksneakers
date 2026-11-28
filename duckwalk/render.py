@@ -69,6 +69,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 {sample_banner}
 <header class="site-header"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo.png" alt="{e(cfg['site_name'])}" width="170" height="168"></a>
+  <a class="header-guides" href="/guides/">Guides</a>
   <nav><a href="/#brands">Brands</a><a href="/guides/">Guides</a><a class="btn btn-small" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Full store on eBay</a></nav>
 </div></header>
 <main class="wrap">
