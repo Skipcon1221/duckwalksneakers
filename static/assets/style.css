@@ -105,3 +105,29 @@ a{color:inherit}
 .size-price .bid{display:block;font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase}
 .footer-links a{margin:0 2px}
 .privacy{max-width:720px}
+/* Buying guides */
+.guide{max-width:760px;margin:10px 0 24px}
+.guide h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1;margin:6px 0 8px;letter-spacing:-.03em}
+.guide header .brand{text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--muted);font-size:.8rem;margin:0}
+.guide-body p,.guide-body li{font-size:1.04rem;line-height:1.65}
+.guide-body li{margin:6px 0}
+.guide-body a{font-weight:700}
+.guide-body .table-wrap{overflow-x:auto;margin:14px 0}
+.guide-body table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);font-size:.92rem}
+.guide-body th,.guide-body td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.guide-body thead th{background:#f3f1ed}
+.guide-cta{margin:22px 0}
+.guide-links{margin:26px 0}
+.guide-links h2,.guide-strip h2{font-size:1.25rem;margin:0 0 10px;letter-spacing:-.01em}
+.guide-links ul{padding-left:20px;margin:0}
+.guide-links li{margin:6px 0}
+.guide-strip{margin:34px 0}
+.guide-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.guide-list li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.guide-list a{font-weight:800}
+.guide-grid{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.guide-card{display:block;height:100%;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;text-decoration:none}
+.guide-card:hover{border-color:#cfc9bd;box-shadow:0 6px 20px rgba(0,0,0,.07)}
+.guide-card h2{font-size:1.1rem;line-height:1.3;margin:0 0 8px}
+.guide-card p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
+.guide-card .read{font-weight:800;font-size:.9rem}

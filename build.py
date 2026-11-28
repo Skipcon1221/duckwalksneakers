@@ -22,6 +22,7 @@ from zoneinfo import ZoneInfo
 from duckwalk import ebay
 from duckwalk.models import group, group_report, slugify, size_sort_key
 from duckwalk import render
+from duckwalk import guides as guidelib
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
@@ -159,6 +160,13 @@ def main():
                     ignore=None if mode == "sample" else shutil.ignore_patterns("sample-img"))
 
     in_stock = [m for m in models if m["in_stock"]]
+    # Buying guides (our own copy from content/guides/*.md). Built before the model pages so each model
+    # page can link to its guides.
+    guides = guidelib.load_guides(ROOT)
+    ctx["guides"] = guides
+    ctx["model_guides"] = {m["slug"]: guidelib.guides_for_model(m, guides) for m in models}
+    valid_paths = {"/", "/privacy/", "/guides/"} | {f"/{m['slug']}/" for m in models}
+    valid_paths |= {f"/brand/{bs}/" for _, bs in brand_index} | {g["path"] for g in guides}
     for m in models:
         mt = tokens(m["name"])
         cands = [s for s in in_stock if s["key"] != m["key"]]
@@ -169,9 +177,25 @@ def main():
     write("index.html", render.home_page(ctx, brands))
     write("404.html", render.not_found_page(ctx))
     write("privacy/index.html", render.privacy_page(ctx))
+    if guides:
+        write("guides/index.html", render.guides_index_page(ctx))
+    for g in guides:
+        links = []
+        guidelib.render_markdown(g["body_md"], links)
+        dead = sorted({l for l in links if l not in valid_paths})
+        if dead:
+            print(f"WARNING guide {g['slug']}: links dropped because the page does not exist in this build: {dead}")
+        body_html = guidelib.render_markdown(g["body_md"], [], strip=set(dead))
+        write(f"guides/{g['slug']}/index.html",
+              render.guide_page(ctx, g, body_html, guidelib.matching_models(g, models)))
+        print(f"guide /guides/{g['slug']}/ ({guidelib.word_count(g['body_md'])} words, "
+              f"{len(guidelib.matching_models(g, models))} in-stock models shown)")
 
     base = cfg["base_url"].rstrip("/")
     urls = [(base + "/", now_iso), (base + "/privacy/", now_iso)]
+    if guides:
+        urls.append((base + "/guides/", max(g["modified"] for g in guides)))
+        urls += [(base + g["path"], g["modified"]) for g in guides]
     urls += [(f"{base}/brand/{bs}/", now_iso) for _, bs in brand_index]
     urls += [(f"{base}/{m['slug']}/", m.get("last_changed", now_iso)) for m in sorted(models, key=lambda x: x["slug"])]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

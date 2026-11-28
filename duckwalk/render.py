@@ -25,7 +25,7 @@ def jsonld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
 
-def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_image=""):
+def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_image="", og_type="website"):
     cfg = ctx["cfg"]
     base = cfg["base_url"].rstrip("/")
     sample_banner = ""
@@ -50,7 +50,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 <title>{e(title)}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{e(base + canonical_path)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{e(og_type)}">
 <meta property="og:site_name" content="{e(cfg['site_name'])}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
@@ -69,7 +69,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
 {sample_banner}
 <header class="site-header"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo.png" alt="{e(cfg['site_name'])}" width="170" height="168"></a>
-  <nav><a href="/#brands">Brands</a><a class="btn btn-small" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Full store on eBay</a></nav>
+  <nav><a href="/#brands">Brands</a><a href="/guides/">Guides</a><a class="btn btn-small" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Full store on eBay</a></nav>
 </div></header>
 <main class="wrap">
 {epn_top}
@@ -81,7 +81,7 @@ def layout(ctx, *, title, description, canonical_path, body, head_extra="", og_i
   {e(cfg['site_name'])} (eBay store: {e(cfg.get('ebay_store_name') or ctx['seller'])}) is an independent eBay seller. This site is not run, endorsed or sponsored by eBay.{epn_note}</p>
   <p class="muted">Listing photos, prices and sizes come from our own live eBay listings and refresh every few hours. Always confirm the final price, shipping and details on eBay before buying.
   Brand and model names are trademarks of their owners and are used only to describe the items; we are not affiliated with any sneaker brand.</p>
-  <p class="footer-links"><a href="/privacy/">Privacy</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-agreement?id=4259" rel="noopener">eBay User Agreement</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-privacy-notice-privacy-policy?id=4260" rel="noopener">eBay Privacy Notice</a></p>
+  <p class="footer-links"><a href="/guides/">Buying guides</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-agreement?id=4259" rel="noopener">eBay User Agreement</a> &middot; <a href="https://www.ebay.com/help/policies/member-behavior-policies/user-privacy-notice-privacy-policy?id=4260" rel="noopener">eBay Privacy Notice</a></p>
 </div></footer>
 <script>
 (function(){{var el=document.querySelector('[data-built]');if(!el)return;
@@ -244,11 +244,14 @@ def model_page(m, ctx, similar, content):
         similar_html = ebay_block(f'<h2>{"Similar pairs in stock" if not m["in_stock"] else "You might also like"}</h2><div class="grid">{"".join(card(s, ctx) for s in similar)}</div>',
                                   "Similar pairs from our live eBay listings")
 
+    guide_links = "".join(f'<li><a href="{e(g["path"])}">{e(g["title"])}</a></li>' for g in (ctx.get("model_guides") or {}).get(m["slug"], []))
+    guide_html = f'<aside class="guide-links"><h2>Buying guides</h2><ul>{guide_links}</ul></aside>' if guide_links else ""
     body = f"""<nav class="crumbs"><a href="/">Home</a> / <a href="/brand/{e(m['brand_slug'])}/">{e(m['brand'])}</a> / <span>{e(m['name'])}</span></nav>
 <article class="model{' is-out' if not m['in_stock'] else ''}">
 {ebay_html}
 {own_html}
 </article>
+{guide_html}
 {similar_html}"""
     return layout(ctx, title=title, description=desc, canonical_path=path, body=body,
                   head_extra="".join(jsonld(x) for x in ld), og_image=hero_img or "")
@@ -273,7 +276,8 @@ def home_page(ctx, brands):
   <div class="hero-cta"><a class="btn" href="{e(store_home_url(cfg, ctx['seller']))}" rel="noopener">Shop the full store on eBay</a></div>
 </section>
 <section id="brands"><h2 class="visually-hidden">Brands</h2><div class="chips">{chips}</div></section>
-{''.join(sections)}"""
+{''.join(sections)}
+{guide_strip(ctx)}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": base + "/"}
     return layout(ctx, title=f"{cfg['site_name']} | Jordan, Nike, adidas & more sneakers by size",
                   description=f"{cfg['site_name']}: shop {total_pairs} sneakers in stock by model and size, including "
@@ -308,7 +312,7 @@ def privacy_page(ctx):
     body = f"""<section class="prose privacy"><h1>Privacy policy</h1>
 <p>{n} is a simple catalog of the sneakers we have listed for sale on eBay. This page explains what happens to your information when you visit.</p>
 <h2>What we collect</h2>
-<p>Nothing. This site has no accounts, no forms, no checkout, no analytics and no cookies of its own. We do not ask for, receive or store any personal information.</p>
+<p>Nothing. This site has no accounts, no forms, no checkout and no cookies of its own. We do not ask for, receive or store any personal information. The site uses Cloudflare Web Analytics, a privacy-friendly visitor counter with no cookies that doesn't track individuals.</p>
 <h2>Hosting</h2>
 <p>The site is hosted on Cloudflare Pages. Like any web host, Cloudflare may log technical data such as your IP address when you load a page, for security and to run the service. See the
 <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Privacy Policy</a>.</p>
@@ -323,3 +327,68 @@ def privacy_page(ctx):
 </section>"""
     return layout(ctx, title=f"Privacy policy | {cfg['site_name']}", description=f"Privacy policy for {cfg['site_name']}.",
                   canonical_path="/privacy/", body=body)
+
+
+# ---------- Buying guides (our own content; see duckwalk/guides.py) ----------
+
+def guide_strip(ctx):
+    gs = ctx.get("guides") or []
+    if not gs:
+        return ""
+    items = "".join(f'<li><a href="{e(g["path"])}">{e(g["title"])}</a><span class="muted">{e(g["summary"])}</span></li>' for g in gs)
+    return f'''<section class="guide-strip"><div class="sec-head"><h2>Buying guides</h2><a href="/guides/">All guides &rarr;</a></div><ul class="guide-list">{items}</ul></section>'''
+
+
+def guides_index_page(ctx):
+    cfg = ctx["cfg"]
+    base = cfg["base_url"].rstrip("/")
+    gs = ctx["guides"]
+    items = "".join(f'''<li><a class="guide-card" href="{e(g["path"])}"><h2>{e(g["title"])}</h2><p>{e(g["summary"])}</p><span class="read">Read the guide &rarr;</span></a></li>''' for g in gs)
+    body = f'''<nav class="crumbs"><a href="/">Home</a> / <span>Buying guides</span></nav>
+<section class="brand-sec"><h1>Sneaker buying guides</h1>
+<p class="lead">Plain-talk help on sizing, fit and what to look for, written by {e(cfg["site_name"])}, an independent eBay seller in Southwest Florida.</p>
+<ul class="guide-grid">{items}</ul></section>'''
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Sneaker buying guides", "url": base + "/guides/",
+           "hasPart": [{"@type": "Article", "headline": g["title"], "url": base + g["path"]} for g in gs]},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": cfg["site_name"], "item": base + "/"},
+              {"@type": "ListItem", "position": 2, "name": "Buying guides", "item": base + "/guides/"}]}]
+    return layout(ctx, title=f"Sneaker Buying Guides: Sizing, Fit and Comparisons | {cfg['site_name']}",
+                  description=f"Sizing, fit and comparison guides for Air Force 1, Jordan 1, Air Max and Nike Shox sneakers from {cfg['site_name']}.",
+                  canonical_path="/guides/", body=body, head_extra="".join(jsonld(x) for x in ld))
+
+
+def guide_page(ctx, g, body_html, matches):
+    cfg, seller = ctx["cfg"], ctx["seller"]
+    base = cfg["base_url"].rstrip("/")
+    others = [x for x in ctx["guides"] if x["slug"] != g["slug"]]
+    more = "".join(f'<li><a href="{e(x["path"])}">{e(x["title"])}</a></li>' for x in others)
+    stock = ""
+    if matches:
+        stock = ebay_block(f'<h2>Pairs in stock now</h2><div class="grid">{"".join(card(m, ctx) for m in matches)}</div>',
+                           "From our live eBay listings")
+    store = store_search_url(g["store_query"], cfg, seller)
+    cta = (f'<p class="guide-cta"><a class="btn" href="{e(store)}" rel="{"sponsored " if cfg.get("epn_campaign_id") else ""}noopener">'
+           f'Shop {e(g["store_query"])} in our eBay store</a></p>')
+    body = f"""<nav class="crumbs"><a href="/">Home</a> / <a href="/guides/">Buying guides</a> / <span>{e(g['title'])}</span></nav>
+<article class="guide">
+<header><p class="brand">Buying guide</p><h1>{e(g['title'])}</h1>
+<p class="muted small">By {e(cfg['site_name'])} &middot; Updated <time datetime="{e(g['modified'])}">{e(g['modified'])}</time></p></header>
+<div class="prose guide-body">{body_html}</div>
+{cta}
+</article>
+{stock}
+<aside class="guide-links"><h2>More buying guides</h2><ul>{more}</ul></aside>"""
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["description"],
+           "datePublished": g["published"], "dateModified": g["modified"],
+           "mainEntityOfPage": {"@type": "WebPage", "@id": base + g["path"]},
+           "image": [base + "/assets/og-default.png"],
+           "author": {"@type": "Organization", "name": cfg["site_name"], "url": base + "/"},
+           "publisher": {"@type": "Organization", "name": cfg["site_name"], "url": base + "/",
+                         "logo": {"@type": "ImageObject", "url": base + "/assets/logo.png"}}}
+    crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": cfg["site_name"], "item": base + "/"},
+        {"@type": "ListItem", "position": 2, "name": "Buying guides", "item": base + "/guides/"},
+        {"@type": "ListItem", "position": 3, "name": g["title"], "item": base + g["path"]}]}
+    return layout(ctx, title=f"{g['title']} | {cfg['site_name']}", description=g["description"], canonical_path=g["path"],
+                  body=body, head_extra=jsonld(art) + jsonld(crumbs), og_type="article")
